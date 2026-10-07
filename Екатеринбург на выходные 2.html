@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Екатеринбург на выходные</title>
+<style>
+:root{
+  --bg:#1c2127; --bg2:#242a32; --ink:#ece7dd; --ink-dim:#a9afb8;
+  --rust:#b5603a; --rust-soft:#d98a62; --line:#3a414b;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f1ede4; --bg2:#e6e0d2; --ink:#232019; --ink-dim:#625c4e;
+    --rust:#a6502e; --rust-soft:#c97848; --line:#cfc7b4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c2127; --bg2:#242a32; --ink:#ece7dd; --ink-dim:#a9afb8;
+  --rust:#b5603a; --rust-soft:#d98a62; --line:#3a414b;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px); height:100%;}
+*{box-sizing:border-box;}
+body{
+  margin:0; height:100%; background:var(--bg); color:var(--ink);
+  font-family:'Iowan Old Style','Georgia',serif;
+  display:flex; flex-direction:column;
+}
+.slides{flex:1; position:relative; overflow:hidden;}
+.slide{
+  position:absolute; inset:0; padding:28px 24px 90px;
+  display:none; flex-direction:column; overflow-y:auto;
+}
+.slide.active{display:flex;}
+.eyebrow{
+  font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;
+  letter-spacing:.02em; color:var(--rust-soft); margin:0 0 6px;
+}
+h1{font-size:30px; line-height:1.15; margin:0 0 4px; font-weight:600;}
+h2{font-size:22px; line-height:1.2; margin:0 0 14px; font-weight:600;}
+.sub{color:var(--ink-dim); font-size:15px; margin:0 0 20px; max-width:34em;}
+.card{
+  background:var(--bg2); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px; margin-bottom:10px;
+}
+.card .t{font-weight:600; font-size:15.5px; margin-bottom:3px;}
+.card .d{color:var(--ink-dim); font-size:14px; line-height:1.4;}
+.time{color:var(--rust-soft); font-family:'Helvetica Neue',Arial,sans-serif; font-size:12.5px; margin-right:8px;}
+.budget-row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:9px 0; border-bottom:1px solid var(--line); font-size:14.5px; gap:10px;
+}
+.budget-row .label{color:var(--ink);}
+.budget-row .note{color:var(--ink-dim); font-size:12.5px; display:block;}
+.budget-row .val{font-family:'Helvetica Neue',Arial,sans-serif; white-space:nowrap; font-weight:600;}
+.total{
+  display:flex; justify-content:space-between; align-items:baseline;
+  margin-top:14px; padding-top:12px; border-top:2px solid var(--rust);
+  font-size:18px; font-weight:600;
+}
+ul.tips{margin:0; padding-left:20px; color:var(--ink);}
+ul.tips li{margin-bottom:9px; line-height:1.4; font-size:15px;}
+.cover{justify-content:center;}
+.cover .big{font-size:38px; line-height:1.1; margin:0 0 10px; font-weight:600;}
+.cover .meta{color:var(--ink-dim); font-size:15px; margin-top:16px;}
+.nav{
+  position:fixed; bottom:0; left:0; right:0;
+  padding:10px 20px calc(14px + env(safe-area-inset-bottom,0px));
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--bg); border-top:1px solid var(--line);
+}
+.nav button{
+  font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px;
+  background:none; border:1px solid var(--line); color:var(--ink);
+  padding:8px 16px; border-radius:20px; cursor:pointer;
+}
+.nav button:disabled{opacity:.3;}
+.dots{display:flex; gap:6px;}
+.dots span{width:6px; height:6px; border-radius:50%; background:var(--line);}
+.dots span.on{background:var(--rust);}
+</style>
+</head>
+<body>
+<div class="slides">
+
+  <section class="slide active cover">
+    <p class="eyebrow">Пермь → Екатеринбург · 2 дня</p>
+    <p class="big">Смена обстановки<br>на выходные</p>
+    <p class="sub">Город конструктивизма, набережная, Вайнера — и термы «Баден-Баден» на закуску. Маршрут и бюджет на двоих.</p>
+    <p class="meta">~400 км от Перми · автобус/поезд ~6 ч, самолёт ~1 ч</p>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Маршрутный лист</p>
+    <h2>По часам, с адресами</h2>
+    <p class="sub" style="margin-bottom:10px;">Суббота</p>
+    <div class="budget-row"><span class="label">10:00 — заселение<span class="note">гостиница / апартаменты в центре</span></span></div>
+    <div class="budget-row"><span class="label">11:00–12:00 — Плотинка<span class="note">Исторический сквер, просп. Ленина, 1</span></span></div>
+    <div class="budget-row"><span class="label">12:15–13:30 — Ельцин-центр<span class="note">ул. Бориса Ельцина, 3</span></span></div>
+    <div class="budget-row"><span class="label">13:30–14:30 — обед<span class="note">кафе рядом с центром</span></span></div>
+    <div class="budget-row"><span class="label">14:30–17:00 — ул. Вайнера<span class="note">прогулка, магазины, скульптуры</span></span></div>
+    <div class="budget-row"><span class="label">18:00–19:00 — смотровая «Высоцкий»<span class="note">ул. Малышева, 51, 54 этаж</span></span></div>
+    <div class="budget-row" style="border-bottom:none;"><span class="label">19:30 — ужин<span class="note">центр города</span></span></div>
+    <p class="sub" style="margin:18px 0 10px;">Воскресенье</p>
+    <div class="budget-row"><span class="label">09:30–13:30 — «Баден-Баден»<span class="note">ул. Зимняя, 23 · вс 9:00–19:00</span></span></div>
+    <div class="budget-row"><span class="label">13:30–14:30 — обед<span class="note">в комплексе или по пути в центр</span></span></div>
+    <div class="budget-row" style="border-bottom:none;"><span class="label">15:00 — выезд домой<span class="note">на вокзал / в аэропорт</span></span></div>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">День 1 · суббота</p>
+    <h2>Город</h2>
+    <div class="card"><div class="t"><span class="time">утро</span>Плотинка и исторический сквер</div><div class="d">Место основания города, вид на пруд и заводскую плотину — логичная точка старта.</div></div>
+    <div class="card"><div class="t"><span class="time">день</span>Ельцин-центр</div><div class="d">Музей новейшей истории России, интерактивная экспозиция, можно провести 1,5–2 часа.</div></div>
+    <div class="card"><div class="t"><span class="time">день</span>Улица Вайнера</div><div class="d">Пешеходная улица с кафе, уличными скульптурами и магазинами — удобна для прогулки между точками.</div></div>
+    <div class="card"><div class="t"><span class="time">вечер</span>Стрит-арт и смотровая площадка</div><div class="d">Бизнес-центр «Высоцкий» — смотровая на 52 этаже, особенно хороша на закате.</div></div>
+    <div class="card"><div class="t"><span class="time">ужин</span>Кафе в районе Вайнера / Красноармейской</div><div class="d">Плотный выбор заведений разного уровня — от бургерных до уральской кухни.</div></div>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">День 2 · воскресенье</p>
+    <h2>Термы «Баден-Баден»</h2>
+    <div class="card"><div class="t">Термальный комплекс на Уктусе</div><div class="d">Самый большой термальный бассейн на Урале, несколько саун, купели. Закладывайте 3–4 часа.</div></div>
+    <div class="card"><div class="t">Когда ехать</div><div class="d">Лучше с утра в будний формат выходного — к обеду заполняется плотнее.</div></div>
+    <div class="card"><div class="t">После — обед рядом</div><div class="d">Можно пообедать в самом комплексе или вернуться в центр перед отъездом.</div></div>
+    <div class="card"><div class="t">Вечер</div><div class="d">Время на дорогу домой или ещё одна прогулка по центру, если поезд/автобус поздний.</div></div>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Бюджет на двоих</p>
+    <h2>Ориентировочно, ₽</h2>
+    <div class="budget-row"><span class="label">Дорога туда-обратно<span class="note">автобус/поезд, на двоих</span></span><span class="val">5 000–9 000</span></div>
+    <div class="budget-row"><span class="label">Проживание<span class="note">2 ночи, центр, 3★/апартаменты</span></span><span class="val">6 000–9 000</span></div>
+    <div class="budget-row"><span class="label">«Баден-Баден»<span class="note">входные билеты на двоих</span></span><span class="val">2 000–3 000</span></div>
+    <div class="budget-row"><span class="label">Еда<span class="note">кафе и рестораны, 2 дня на двоих</span></span><span class="val">7 000–10 000</span></div>
+    <div class="budget-row"><span class="label">Транспорт в городе<span class="note">такси/метро, музеи</span></span><span class="val">2 000–3 000</span></div>
+    <div class="total"><span>Итого</span><span>22 000–34 000</span></div>
+  </section>
+
+  <section class="slide">
+    <p class="eyebrow">Перед поездкой</p>
+    <h2>Коротко</h2>
+    <ul class="tips">
+      <li>Билеты на автобус/поезд и жильё в центре лучше брать заранее — на выходные разбирают быстро.</li>
+      <li>В «Баден-Баден» возьмите купальники, сланцы и полотенце — хотя шапочку и полотенце обычно можно взять в аренду на месте.</li>
+      <li>Цены на термы и жильё колеблются по сезону — стоит сверить перед бронью.</li>
+      <li>Если маршрут плотный, Ельцин-центр и смотровую можно поменять местами в зависимости от погоды.</li>
+    </ul>
+  </section>
+
+</div>
+<div class="nav">
+  <button id="prev" onclick="go(-1)">Назад</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" onclick="go(1)">Далее</button>
+</div>
+<script>
+const slides=document.querySelectorAll('.slide');
+const dotsEl=document.getElementById('dots');
+let i=0;
+slides.forEach((_,n)=>{const d=document.createElement('span');dotsEl.appendChild(d);});
+function render(){
+  slides.forEach((s,n)=>s.classList.toggle('active',n===i));
+  [...dotsEl.children].forEach((d,n)=>d.classList.toggle('on',n===i));
+  document.getElementById('prev').disabled=i===0;
+  document.getElementById('next').disabled=i===slides.length-1;
+}
+function go(dir){i=Math.min(slides.length-1,Math.max(0,i+dir));render();}
+render();
+</script>
+</body>
+</html>
